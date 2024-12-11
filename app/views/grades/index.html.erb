@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Grades</h1>
+  <h1>Grades</h1>
 
-<div id="grades">
-  <% @grades.each do |grade| %>
-    <%= render grade %>
-    <p>
-      <%= link_to "Show this grade", grade %>
-    </p>
-  <% end %>
+  <div id="grades">
+    <% @grades.each do |grade| %>
+      <%= render grade %>
+      <p>
+        <%= link_to "Show this grade", grade %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New grade", new_grade_path %>
 </div>
-
-<%= link_to "New grade", new_grade_path %>
