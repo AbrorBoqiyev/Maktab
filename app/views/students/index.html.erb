@@ -1,16 +1,33 @@
-<div class="container">
+<div class="container cover rounded px-4 py-2 my-4">
   <p style="color: green"><%= notice %></p>
 
-  <h1>Students</h1>
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1>Students</h1>
+    <%= link_to "New student", new_student_path, class: "btn btn-outline-secondary" %>
+  </div>
 
-  <div id="students">
+  <div id="students" class="row">
     <% @students.each do |student| %>
-      <%= render student %>
-      <p>
-        <%= link_to "Show this student", student %>
-      </p>
+      <div class="col-4 my-2">
+        <div class="container student_id rounded">
+          <%= render student %>
+          <p>
+            <%= link_to "Show this student", student, class: "btn btn-outline-primary" %>
+          </p>
+        </div>
+      </div>
     <% end %>
   </div>
 
-  <%= link_to "New student", new_student_path %>
 </div>
+
+<style>
+  .cover{
+    box-shadow: 1px 1px 5px gray;
+
+  }
+  .student_id{
+    padding: 10px 20px;
+    box-shadow: 1px 1px 5px black;
+  }
+</style>
