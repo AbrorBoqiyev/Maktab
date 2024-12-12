@@ -1,3 +1,5 @@
 class Student < ApplicationRecord
-  validates presence: true, length: {minimum: 2}
+  validates :name, presence: true, length: {minimum: 2}  #name=>firstname
+  # validates :age, presence: true, {5< , 25<}, firstname, lastname, method: fullname
+  has_many :grades
 end
