@@ -37,11 +37,24 @@
 
 <style>
   .navbar{
+    /* margin: 0;
+    padding: 0; */
     box-shadow: 1px 1px 5px black;
     box-sizing: border-box;
   }
 
+  .nav-link{
+    margin: 0;
+    padding: 10px 20px;
+    transition: 0.3s;
+    border-radius: 5px
+  }
+
   .nav-link:hover{
-    border-bottom: 3px solid darkcyan;
+    transform: scale(1.1);
+    background: linear-gradient(to right bottom, lightblue, lightgray)
+  }
+  .nav-link:active{
+    transform: scale(0.9)
   }
 </style>
