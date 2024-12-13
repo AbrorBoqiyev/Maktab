@@ -1,16 +1,24 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
-
-  <h1>Grades</h1>
-
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1>Grades</h1>
+    <%= link_to "New grade", new_grade_path, class: "btn btn-outline-secondary" %>
+  </div>
   <div id="grades">
     <% @grades.each do |grade| %>
-      <%= render grade %>
-      <p>
-        <%= link_to "Show this grade", grade %>
-      </p>
+      <div class="container grade d-flex flex-direction-column gap-4 rounded my-2 pt-2">
+        <%= render grade %>
+        <p>
+          <%= link_to "Show this grade", grade %>
+        </p>
+      </div>
     <% end %>
   </div>
 
-  <%= link_to "New grade", new_grade_path %>
 </div>
+
+<style>
+  .grade{
+    box-shadow: 1px 1px 5px black;
+  }
+</style>

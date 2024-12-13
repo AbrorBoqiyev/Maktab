@@ -1,7 +1,7 @@
-<div id="<%= dom_id grade %>">
+<div id="<%= dom_id grade %>" class="d-flex justify-content-between gap-4">
   <p>
     <strong>Teacher:</strong>
-    <%= grade.teacher_id %>
+    <%= link_to grade.teacher.name, grade.teacher %>
   </p>
 
   <p>
