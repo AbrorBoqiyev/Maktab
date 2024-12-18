@@ -1,7 +1,11 @@
 <div id="<%= dom_id grade %>" class="d-flex justify-content-between gap-4">
   <p>
     <strong>Teacher:</strong>
-    <%= link_to grade.teacher.name, grade.teacher %>
+    <% if grade.teacher.present? %>
+      <%= link_to grade.teacher.firstname, grade.teacher %>
+    <% else %>
+      <%= link_to "Edit", edit_grade_path(grade) %>
+    <% end %>
   </p>
 
   <p>
