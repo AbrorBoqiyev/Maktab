@@ -1,12 +1,12 @@
 class Teacher < ApplicationRecord
-  validates :name, presence: true 
+  validates :firstname, presence: true 
   validates :surname, presence: true
-  has_many :subjects
-  has_many :grades
+  has_many :subjects, dependent: :destroy
+  has_many :grades, dependent: :destroy
 
 
   def fullname
-    "#{name} #{surname}"
+    "#{firstname} #{surname}"
   end
 
 end
