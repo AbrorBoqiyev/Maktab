@@ -2,6 +2,9 @@
 
 <%= render @teacher %>
 
+<strong>Surname:</strong>
+<%= @teacher.fullname %>
+
 <div>
   <%= link_to "Edit this teacher", edit_teacher_path(@teacher), class: "btn btn-secondary m-1 py-1" %> |
   <%= link_to "Back to teachers", teachers_path, class: "btn btn-primary m-1 py-1" %>
