@@ -7,7 +7,27 @@
   <div id="grades">
     <% @grades.each do |grade| %>
       <div class="container grade d-flex flex-direction-column gap-4 rounded my-2 pt-2">
-        <%= render grade %>
+        
+        <p>
+          <strong>Teacher:</strong>
+          <% if grade.teacher.present? %>
+            <%= link_to grade.teacher.firstname, grade.teacher %>
+          <% else %>
+            <%= link_to "Edit", edit_grade_path(grade) %>
+          <% end %>
+        </p>
+
+        <p>
+          <strong>Student:</strong>
+          <%= grade.student_id %>
+          <%= link_to grade.student.firstname, grade.student %>
+        </p>
+
+        <p>
+          <strong>Score:</strong>
+          <%= grade.score %>
+        </p>
+
         <p>
           <%= link_to "Show this grade", grade %>
         </p>

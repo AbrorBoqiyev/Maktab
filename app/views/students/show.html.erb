@@ -3,6 +3,9 @@
 
   <%= render @student %>
 
+  <strong>Fullname:</strong>
+  <%= @student.fullname %>
+
   <div>
     <%= link_to "Edit this student", edit_student_path(@student) %> |
     <%= link_to "Back to students", students_path %>

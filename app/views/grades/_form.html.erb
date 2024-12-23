@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label :teacher_id, style: "display: block" %>
-    <%= form.number_field :teacher_id %>
+    <%= form.collection_select :teacher_id, Teacher.all, :id, :fullname, prompt: "Select Teacher" %>
   </div>
 
   <div>
     <%= form.label :student_id, style: "display: block" %>
-    <%= form.number_field :student_id %>
+    <%= form.collection_select :student_id, Student.all, :id, :fullname, prompt: "Select Student" %>
   </div>
 
   <div>
@@ -27,6 +27,6 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>
