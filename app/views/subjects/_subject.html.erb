@@ -1,12 +1,12 @@
 <div id="<%= dom_id subject %>">
   <p>
-    <strong>Name:</strong>
+    <strong>Subject:</strong>
     <%= subject.name %>
   </p>
 
   <p>
     <strong>Teacher:</strong>
-    <%= subject.teacher_id %>
+    <%= link_to subject.teacher&.firstname, subject.teacher %>
   </p>
 
 </div>
