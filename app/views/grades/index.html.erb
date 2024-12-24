@@ -12,6 +12,7 @@
         <th scope="col">Teacher</th>
         <th scope="col">Student</th>
         <th scope="col">Score</th>
+        <th scope="col">Subject</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -35,6 +36,10 @@
           <td><%= grade.score %></td>
 
           <td>
+            <%= link_to grade.subject.name, grade.subject  %>
+          </td>
+
+          <td>
             <%= link_to "Show", grade, class: "btn btn-sm btn-outline-primary mx-2" %>
             <%= link_to "Delete", grade, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-outline-danger" %>
           </td>
@@ -51,4 +56,5 @@
   th, td{
     text-align: center;
   }
+  
 </style>

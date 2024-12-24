@@ -4,9 +4,9 @@
   <%= render @grade %>
 
   <div>
-    <%= link_to "Edit this grade", edit_grade_path(@grade) %> |
-    <%= link_to "Back to grades", grades_path %>
+    <%= link_to "Edit this grade", edit_grade_path(@grade), class: "btn btn-sm btn-outline-secondary" %> |
+    <%= link_to "Back to grades", grades_path, class: "btn btn-sm btn-outline-primary" %>
 
-    <%= button_to "Destroy this grade", @grade, method: :delete %>
+    <%= button_to "Destroy this grade", @grade, method: :delete, class: "btn btn-sm btn-outline-danger my-2                                                                       `````1" %>
   </div>
 </div>

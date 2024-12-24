@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container cover rounded mt-4 p-4">
   <p style="color: green"><%= notice %></p>
   <div class="container d-flex justify-content-between align-items-center">
     <h1>Teachers</h1>
@@ -6,11 +6,30 @@
   </div>
   <div id="teachers">
     <% @teachers.each do |teacher| %>
-      <%= render teacher %>
-      <p>
-        <%= link_to "Show this teacher", teacher, class: "btn btn-outline-primary py-1" %>
-      </p>
+      <div class="container teacher d-flex flex-direction-column gap-5 rounded my-2 pt-2">
+        <p>
+          <strong>id:</strong>
+          <%= teacher.id %>
+        </p>
+        <p>
+          <strong>surname:</strong>
+          <%= teacher.surname %>
+        </p>
+        <p>
+          <%= link_to "Show this teacher", teacher, class: "btn btn-sm btn-outline-primary py-1" %>
+        </p>
+      </div>  
     <% end %>
   </div>
 
 </div>
+
+<style>
+  .cover{
+    box-shadow: 1px 1px 5px #111;
+  } 
+  
+  .teacher{
+    box-shadow: 1px 1px 5px #333;
+  }
+</style>
