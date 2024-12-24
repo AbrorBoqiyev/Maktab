@@ -1,12 +1,4 @@
-<div id="<%= dom_id grade %>" class="d-flex justify-content-between gap-4">
-  <p>
-    <strong>Teacher:</strong>
-    <% if grade.teacher.present? %>
-      <%= link_to grade.teacher.firstname, grade.teacher %>
-    <% else %>
-      <%= link_to "Edit", edit_grade_path(grade) %>
-    <% end %>
-  </p>
+<div id="<%= dom_id grade %>" class="d-flex flex-direction-column gap-4">
 
   <p>
     <strong>Student:</strong>
@@ -17,6 +9,20 @@
   <p>
     <strong>Score:</strong>
     <%= grade.score %>
+  </p>
+
+  <p>
+    <strong>Subject:</strong>
+    <%= grade.subject.name %>
+  </p>
+
+  <p>
+    <strong>Teacher:</strong>
+    <% if grade.teacher.present? %>
+      <%= link_to grade.teacher.firstname, grade.teacher %>
+    <% else %>
+      <%= link_to "Edit", edit_grade_path(grade) %>
+    <% end %>
   </p>
 
 </div>

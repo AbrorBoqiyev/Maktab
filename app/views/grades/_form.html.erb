@@ -18,7 +18,12 @@
 
   <div>
     <%= form.label :student_id, style: "display: block" %>
-    <%= form.collection_select :student_id, Student.all, :id, :fullname, prompt: "Select Student" %>
+    <%= form.collection_select :student_id, Student.all, :id, :fullname, prompt: "Talabani Tanlang" %>
+  </div>
+
+  <div>
+    <%= form.label :subject_id, style: "display: block;" %>
+    <%= form.collection_select :subject_id, Subject.all, :id, :name, prompt: "Select Subject" %>
   </div>
 
   <div>
