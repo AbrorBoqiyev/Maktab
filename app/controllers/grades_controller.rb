@@ -3,7 +3,7 @@ class GradesController < ApplicationController
 
   # GET /grades or /grades.json
   def index
-    @grades = Grade.includes(:teacher, student: :subject).all
+    @grades = Grade.includes(:teacher, :student, :subject).all
   end
 
   # GET /grades/1 or /grades/1.json
@@ -65,6 +65,6 @@ class GradesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def grade_params
-      params.require(:grade).permit(:teacher_id, :student_id, :score)
+      params.require(:grade).permit(:teacher_id, :student_id, :subject_id, :score)
     end
 end
