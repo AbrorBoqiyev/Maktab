@@ -8,10 +8,16 @@
   <table class="table table-striped table-bordered">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">
+          <%= link_to "ID", grades_path(sort: "id", direction: toggle_direction(params[:direction]))%>
+          <%= arrow(params[:sort], "id", params[:direction]) %>
+        </th>
         <th scope="col">Teacher</th>
         <th scope="col">Student</th>
-        <th scope="col">Score</th>
+        <th scope="col">
+          <%= link_to "Score", grades_path(sort: 'score', direction: toggle_direction(params[:direction])) %>
+          <%= arrow(params[:sort], "score", params[:direction]) %>
+        </th>
         <th scope="col">Subject</th>
         <th scope="col">Action</th>
       </tr>
