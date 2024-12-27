@@ -54,6 +54,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'byebug'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -72,3 +73,5 @@ group :test do
 end
 
 gem 'pg'
+
+gem 'pry', '~> 0.15.0'
