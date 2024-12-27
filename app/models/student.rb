@@ -10,5 +10,9 @@ class Student < ApplicationRecord
   def fullname
     "#{firstname} #{surname}"
   end
+
+  def self.search(query)
+    where("firstname ILIKE ? OR surname ILIKE?", "%#{query}%", "%#{query}%")
+  end
   
 end

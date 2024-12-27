@@ -3,6 +3,14 @@
 
   <div class="container d-flex justify-content-between align-items-center">
     <h1>Students</h1>
+
+    <%= form_with url: students_path, method: :get, local: true, class: "d-flex" do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search by name", class: "form-control me-2" %>
+      <%= submit_tag "search", class: "btn btn-outline-secondary" %>
+    <% end %>
+
+    <p id="flash-alert" class="text-danger"><%= flash[:alert] %></p>
+
     <%= link_to "New student", new_student_path, class: "btn btn-outline-secondary" %>
   </div>
 
@@ -18,15 +26,24 @@
       </div>
     <% end %>
   </div>
-
 </div>
 
-<style>
-  .cover{
-    box-shadow: 1px 1px 5px gray;
+<%# <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const flashAlert = document.getElementById("flash-alert");
+    if (flashAlert) {
+      setTimeout(() => {
+        flashAlert.style.display = "none";
+      }, 5000);
+    }
+  });
+</script> %>
 
+<style>
+  .cover {
+    box-shadow: 1px 1px 5px gray;
   }
-  .student_id{
+  .student_id {
     padding: 10px 20px;
     box-shadow: 1px 1px 5px black;
   }

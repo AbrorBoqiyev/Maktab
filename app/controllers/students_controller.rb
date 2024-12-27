@@ -3,7 +3,13 @@ class StudentsController < ApplicationController
 
   # GET /students or /students.json
   def index
-    @students = Student.all.order(created_at: :desc)
+    if params[:query].present?
+      @students = Student.where("firstname ILIKE ? OR surname ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").order(created_at: :desc)
+      flash.now[:alert] = "No student found." if @students.empty?
+      params[:query] = nil
+    else
+      @students = Student.all.order(created_at: :desc)
+    end
     # @students = Student.all.order(surname: :desc)
   end
 
