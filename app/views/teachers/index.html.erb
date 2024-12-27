@@ -2,6 +2,14 @@
   <p style="color: green"><%= notice %></p>
   <div class="container d-flex justify-content-between align-items-center">
     <h1>Teachers</h1>
+
+    <%= form_with url: teachers_path, method: :get, local: true, class: "d-flex" do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search by name", class: "form-control me-2" %>
+      <%= submit_tag "Search", class: "btn btn-outline-secondary" %>
+    <% end %>
+
+    <p class="text-danger"><%= flash[:alert]%></p>
+
     <%= link_to "New teacher", new_teacher_path, class: "btn btn-outline-secondary" %>
   </div>
   <div id="teachers">
@@ -12,8 +20,8 @@
           <%= teacher.id %>
         </p>
         <p>
-          <strong>surname:</strong>
-          <%= teacher.surname %>
+          <strong>name:</strong>
+          <%= teacher.fullname %>
         </p>
         <p>
           <%= link_to "Show this teacher", teacher, class: "btn btn-sm btn-outline-primary py-1" %>

@@ -3,7 +3,13 @@ class TeachersController < ApplicationController
 
   # GET /teachers or /teachers.json
   def index
-    @teachers = Teacher.all.order(created_at: :desc)
+    if params[:query].present?
+      @teachers = Teacher.where("firstname ILIKE ? OR surname ILIKE ?","%#{params[:query]}%","%#{params[:query]}%").order(created_at: :desc)
+      flash.now[:alert] = "No teacher found." if @teachers.empty?
+      # params[:query] = nil
+    else
+      @teachers = Teacher.all.order(created_at: :desc)
+    end
   end
 
   # GET /teachers/1 or /teachers/1.json
