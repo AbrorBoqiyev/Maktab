@@ -3,7 +3,15 @@ class GradesController < ApplicationController
 
   # GET /grades or /grades.json
   def index
-    @grades = Grade.includes(:teacher, :student, :subject).all
+    @grades = Grade.includes(:teacher, :student, :subject)    # .order(params[:sort])
+    order_direction = params.dig(:direction) == 'desc' ? :desc : :asc
+    @grades = 
+      case params.dig(:sort)
+      when 'id'
+        @grades.order(id: order_direction)
+      when 'score'
+        @grades.order(score: order_direction)
+      end
   end
 
   # GET /grades/1 or /grades/1.json
